@@ -7,8 +7,9 @@
       "esnext"
     ],
     "esModuleInterop": true,
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
+    "module": "commonjs",
+    "target": "ES2019",
+    "moduleResolution": "node",
     "resolveJsonModule": true
   }
 }
