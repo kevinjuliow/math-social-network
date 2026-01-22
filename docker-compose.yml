@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: math_social_network_db
+    environment:
+      POSTGRES_USER: kevin
+      POSTGRES_PASSWORD: kevin
+      POSTGRES_DB: math_social_network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  server:
+    build: ./server
+    container_name: math_social_network_server
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgresql://kevin:kevin@postgres:5432/math_social_network?schema=public
+      JWT_SECRET: secret123
+      PORT: 3000
+    ports:
+      - "3000:3000"
+    restart: on-failure
+
+  client:
+    build: ./client
+    container_name: math_social_network_client
+    depends_on:
+      - server
+    ports:
+      - "80:80"
+
+volumes:
+  postgres_data:
