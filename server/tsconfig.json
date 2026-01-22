@@ -7,8 +7,8 @@
       "esnext"
     ],
     "esModuleInterop": true,
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
     "resolveJsonModule": true
   }
 }

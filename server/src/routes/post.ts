@@ -1,6 +1,6 @@
-import { authenticateToken } from './../middleware/auth';
+import { authenticateToken } from './../middleware/auth.js';
 import { Router } from 'express';
-import { createRoot, getPost, reply } from '../controller/postController';
+import { createRoot, getPost, reply } from '../controller/postController.js';
 
 const router = Router();
 
